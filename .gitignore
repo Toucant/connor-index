@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+mongo-kbd/**/*.js
 # production
 */build
 */public

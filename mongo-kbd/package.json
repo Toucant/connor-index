@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "ts-node-dev --respawn --transpile-only --debug src/index.ts",
+    "start": "ts-node-dev --respawn --transpile-only  src/index.ts",
     "test": "echo \"Error: no tests yet\" && exit 1",
     "format": "prettier . --write"
   },

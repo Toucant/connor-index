@@ -11,6 +11,7 @@ const networkOptions: cors.CorsOptions = {
 connectToDatabase()
   .then(() => {
     app.use(cors(networkOptions));
+    
     app.use("/tasks", taskRouter);
 
     app.listen(port, () => {
@@ -18,6 +19,6 @@ connectToDatabase()
     });
   })
   .catch((err: Error) => {
-    console.error("Oops", err);
+    console.log("Oops", err);
     process.exit();
   });

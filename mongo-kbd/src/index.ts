@@ -12,8 +12,8 @@ connectToDatabase()
   .then(() => {
     app.use(cors(networkOptions));
     
-    app.use("/tasks", taskRouter);
-
+    app.use("/api/tasks", taskRouter);
+    app.post("/api/signup", async (res, req) => {})
     app.listen(port, () => {
       console.log(`listening on ${port}`);
     });

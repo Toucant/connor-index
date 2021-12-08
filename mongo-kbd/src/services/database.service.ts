@@ -1,6 +1,5 @@
 import * as mongoDB from "mongodb";
 import * as dotenv from "dotenv";
-import TaskCollection from "../models/Task";
 export const collections: { tasks?: mongoDB.Collection } = {};
 
 export async function connectToDatabase() {

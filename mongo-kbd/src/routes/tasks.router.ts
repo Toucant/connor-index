@@ -7,7 +7,7 @@ export const taskRouter = express.Router();
 
 taskRouter.use(express.json());
 
-taskRouter.get("/all", async (_req: Request, res: Response) => {
+taskRouter.get("/api/task", async (_req: Request, res: Response) => {
   try {
     const tasks = (await collections.tasks?.find({}).toArray());
     res.status(200).send(tasks);
@@ -15,7 +15,7 @@ taskRouter.get("/all", async (_req: Request, res: Response) => {
     res.status(500).send(err.message);
   }
 });
-taskRouter.post("/", async (req: Request, res: Response) => {
+taskRouter.post("/task", async (req: Request, res: Response) => {
   try {
     const newTask = req.body;
     const result = await collections.tasks?.insertOne(newTask);

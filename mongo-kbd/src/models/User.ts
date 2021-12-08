@@ -1,29 +1,22 @@
 import mongoose, {Model, Schema} from 'mongoose';
 import bcrypt from 'bcrypt';
-
-export const UserSchema: Schema = new mongoose.Schema({
+export interface IUser {
+    email: string,
+    password: string,
+    username: string,
+}   
+export const UserSchema = new mongoose.Schema({
     email: { type: String, unique: true},
     password: String,
     username: { type: String, unique: true},
-}, {timestamps: true});
+});
+UserSchema.statics.build = (attr: IUser) => {
+    return new User(attr);
+};
+const User = mongoose.model('User', UserSchema);
+const build = (attr: IUser) => {
+    return new User(attr);
+};
+User.build({});
+export {User};
 
-
-// password encryption
-UserSchema.pre("save", function save(next: any) {
-    const user: any = this;
-    if (user && user.email){
-        user.email = user.email.toLowerCase();
-    }
-    if (!user.isModified("password")){
-        return next();
-    }
-    bcrypt.genSalt(10, (err: any, salt: any) => {
-        bcrypt.hash(user.password as string, salt, (err: mongoose.Error | undefined, encrypted: string) => {
-            if (err) {
-                return next(err)
-            }
-            user.password = encrypted;
-            next();
-        })
-    })
-}) 

@@ -6,9 +6,9 @@ export const NavBar:React.FC =  () => {
     return (
         <div> 
             <nav>
-            <Link to="/sign-in">Login</Link>
+            <Link to="/sign-up">Register</Link>
             <Link to="/create-task">Create Task</Link>
-            <Link to="/sign">Tasks</Link>
+            <Link to="/sign-in">Login</Link>
 
             </nav>
         </div>

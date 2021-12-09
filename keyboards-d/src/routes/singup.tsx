@@ -9,23 +9,29 @@ const SignUp = () => {
     const [password, setPassword] = useState('');    
 
     async function registerUser(e: FormEvent<HTMLFormElement>){
+        console.log(JSON.stringify({
+            username,
+            email,
+            password
+        }))
         e.preventDefault()
 
-        try {const response = await fetch('http://localhost:8000/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username,
-                email,
-                password
+        try {
+            const response = await fetch('http://localhost:8000/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
             })
-        })
-        const data = await response.json();
-        console.log(data);
+            const data = await response.json();
+            console.log(data);
         } catch (error) {
-            console.log(error);
+            console.log('fetch error: ' + error);
         }
     }
     
@@ -38,7 +44,7 @@ const SignUp = () => {
                     <input
                     value={username}
                     onChange={(e) => setName(e.target.value)}
-                    type="text"
+                    type="username"
                     placeholder="username"
                     />    
                     <input
@@ -52,7 +58,7 @@ const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
-                    placeholder="Password"
+                    placeholder="password"
                     />
                     <input type="submit" value="Register" />`
                 </form>

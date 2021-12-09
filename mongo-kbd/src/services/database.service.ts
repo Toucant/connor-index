@@ -13,7 +13,5 @@ export async function connectToDatabase() {
   const db: mongoDB.Db = client.db(process.env.DB_NAME);
 
   // collections.tasks = taskCollection;
-  console.log(
-    `connected to ${db.databaseName} amd collection`
-  );
+  console.log(`connected to ${db.databaseName} amd collection`);
 }

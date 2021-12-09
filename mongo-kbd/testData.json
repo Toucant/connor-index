@@ -1,9 +1,8 @@
 {
-    "task": {
-        "title": "test",
-        "description": "test",
-        "department": "marketing",
-        "taskLog": "myfirst"
-    }
-    
+  "task": {
+    "title": "test",
+    "description": "test",
+    "department": "marketing",
+    "taskLog": "myfirst"
+  }
 }

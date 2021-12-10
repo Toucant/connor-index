@@ -14,6 +14,7 @@ userRouter.get("/api/users", [], async (_req: Request, res: Response) => {
   const user = await User.find({});
   return res.status(200).send(user);
 });
+
 userRouter.post("/api/signin", async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user: (typeof User) = await User.findOne({ email });

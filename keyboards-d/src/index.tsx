@@ -13,6 +13,7 @@ ReactDOM.render(
       <Route path="create-task" element={<CreateTask/>} />
       <Route path="sign-up" element={<SignUp/>} />
       <Route path="sign-in" element={<SignIn/>}>Login</Route>
+      <Route path="*" element={<div>Not Found</div>} />
   </Routes>
   </Router>,
   document.getElementById('root')

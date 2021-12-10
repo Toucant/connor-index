@@ -1,6 +1,4 @@
  import NavBar from "./components/NavBar";
-import TaskList from './components/TaskList';
-
 
 const Home = () => {
    

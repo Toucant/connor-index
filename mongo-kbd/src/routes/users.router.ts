@@ -1,8 +1,10 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import { User } from "../models/User";
-
+import passport from "passport";
+import * as dotenv from "dotenv";
 // interface defining what to expect from a user document
+dotenv.config();
 interface UserDoc extends mongoose.Document {
   email: string;
   password: string;
@@ -17,7 +19,7 @@ userRouter.get("/api/users", [], async (_req: Request, res: Response) => {
 
 userRouter.post("/api/signin", async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const user: (typeof User) = await User.findOne({ email });
+  const user: typeof User = await User.findOne({ email });
   if (!user) {
     return res.status(401).send({ error: "User not found" });
   }
@@ -32,7 +34,7 @@ userRouter.post("/api/signup", async (req: Request, res: Response) => {
   const emailExists = await User.findOne({ email });
   const usernameExists = await User.findOne({ username });
   if (emailExists) {
-    res.status(401).send({ error: "User already exists" });
+    res.status(401).send({ error: "Email already exists in the system" });
   } else if (usernameExists) {
     res.status(401).send({ error: "Username already exists" });
   } else {

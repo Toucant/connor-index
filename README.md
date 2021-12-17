@@ -8,8 +8,8 @@
 </ol>
     <br />
 <h2>Project setup and commands</h2>
-The project has two directories - frontend(keyboards-d) and backend(mongo-kbd) - in order to run the project locally both must have an instance running in order for the two to communicate with each other.
-here are the steps to run the project: 
+The project has two directories - frontend(keyboards-d) and backend(mongo-kbd) - in order to run the project locally both must have an instance
+running in order for the two to communicate with each other. Here are the steps to run the project: 
 <br /><br />
     <ol>
     <li> Fork or clone the connor-index repository </li>

@@ -30,6 +30,6 @@ running in order for the two to communicate with each other. Here are the steps 
 
 <h4>Troubleshooting?</h4>
 
-- Hopefully it won't be needed, but if there are any dependancy issues here are some fixes that helped me in the past:
-
 - Delete the yarn.lock file in the directory that is causing problems and run the command: yarn
+
+- Hopefully it won't be needed, but if there are any issues please feel free to reach out to me on discord: Le Toucan#0662

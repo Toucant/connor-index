@@ -1,9 +1,9 @@
 <h1>Task Manager</h1><br />
 </h2>Environment and Dependancy Setup</h2> 
 <ol>
-    <li>  Use any package manager to download NodeJS and NPM (Node Package Manager)
+    <li>  Use any package manager to download NodeJS and NPM (Node Package Manager)<br />
     Command: pacman -S nodejs npm        OR      choco install nodejs</li >
-    <li>  Now that Node package manager is installed use it to download yarn 
+    <li>  Now that Node package manager is installed use it to download yarn <br />
     Command:    npm install --global yarn</li >
 </ol>
     <br />
@@ -12,12 +12,12 @@ The project has two directories - frontend(keyboards-d) and backend(mongo-kbd) -
 here are the steps to run the project: 
     <ol>
     <li> Open a new terminal and change the directory to mongo-kbd</li >
-    <li> Run the command: yarn
+    <li> Run the command: yarn<br />
         - simply running yarn will fetch and install the dependencies listed in the package.json file</li >
-    <li> Run the command: yarn start
+    <li> Run the command: yarn start<br />
         - If running properly you should see "server connected" and the port number printed in the terminal</li >
     <li> Leave the mongo terminal running in the background and open a new terminal</li >
-    <li> Change the directory to keyboards-d
+    <li> Change the directory to keyboards-d<br />
         - Will follow the same steps as the previous setup</li >
     <li> Run the command: yarn</li >
     <li> Run the command: yarn start</li >
@@ -27,8 +27,7 @@ here are the steps to run the project:
 <h3>Side notes</h3>
 
 <h4>Troubleshooting?</h4>
-Hopefully it won't be needed, but if there are any dependancy issues here are some fixes that helped me in the past:
+
+- Hopefully it won't be needed, but if there are any dependancy issues here are some fixes that helped me in the past:
 
 - Delete the yarn.lock file in the directory that is causing problems and run the command: yarn
-
-Sorry about the download npm to use to download yarn step. Yarn is essentially the same as npm, but I used yarn on my end and wanted to give directions to recreate the environment as closely as possible.

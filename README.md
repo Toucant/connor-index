@@ -1,11 +1,11 @@
 <h1>Task Manager</h1><br />
 </h2>Environment and Dependancy Setup</h2> 
-<ol>
-    <li>  Use any package manager to download NodeJS and NPM (Node Package Manager)<br />
-    Command: pacman -S nodejs npm        OR      choco install nodejs</li >
-    <li>  Now that Node package manager is installed use it to download yarn <br />
-    Command:    npm install --global yarn</li >
-</ol>
+
+- Use any package manager to download NodeJS and NPM (Node Package Manager)
+    Command: pacman -S nodejs npm        OR      choco install nodejs
+- Now that Node package manager is installed use it to download yarn 
+    Command:    npm install --global yarn
+
     <br />
 <h2>Project setup and commands</h2>
 The project has two directories - frontend(keyboards-d) and backend(mongo-kbd) - in order to run the project locally both must have an instance

@@ -20,9 +20,8 @@ export const UserSchema = new mongoose.Schema({
 interface UserQueryHelpers {
   findByEmail(email: string): Query<any, Document<IUser>> & UserQueryHelpers;
   findByName(
-    firstName : string | undefined
+    firstName: string | undefined
   ): Query<any, Document<IUser>> & UserQueryHelpers;
-
 }
 
 UserSchema.statics.build = (attr: IUser) => {

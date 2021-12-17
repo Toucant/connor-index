@@ -8,13 +8,13 @@ interface taskModelInterface extends mongoose.Model<any> {
   build(attr: ITask): any;
 }
 export interface ITask {
-  title: {type: String, required: true};
-  description: {type: String, required: true};
-  taskLog: {type: String, required: false};
-  department: {type: String, required: true};
-  author: {type: String, required: true};
+  title: { type: String; required: true };
+  description: { type: String; required: true };
+  taskLog: { type: String; required: false };
+  department: { type: String; required: true };
+  author: { type: String; required: true };
   dueDate: { type: Date };
-  assignedUser: {type: String, required: true};
+  assignedUser: { type: String; required: true };
 }
 interface taskModelInterface extends mongoose.Model<any> {
   build(attr: ITask): any;

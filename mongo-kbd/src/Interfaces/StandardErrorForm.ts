@@ -1,9 +1,9 @@
 export interface StandardErrorForm {
-    error: string;
-    message: string;
-    status?: string;
+  error: string;
+  message: string;
+  status?: string;
 }
 export const error401: object = {
-    status: 'error',
-    message: 'Unauthorized',
-}
+  status: "error",
+  message: "Unauthorized",
+};

@@ -24,8 +24,8 @@ userRouter.post("/api/adduser", async (req: Request, res: Response) => {
     const user = User.build({ email, firstName, lastName });
 
     console.log(email, firstName, lastName);
-    await (user).save();
-    res.status(201).json(user);
+    await user.save();
+    res.status(201).json({ status: "success", user: user });
   }
 });
 

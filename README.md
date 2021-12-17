@@ -1,9 +1,9 @@
 <h1>Task Manager</h1><br />
 </h2>Environment and Dependancy Setup</h2> 
 
-- Use any package manager to download NodeJS and NPM (Node Package Manager)
+- Use any package manager to download NodeJS and NPM (Node Package Manager)<br />
     Command: pacman -S nodejs npm        OR      choco install nodejs
-- Now that Node package manager is installed use it to download yarn 
+- Now that Node package manager is installed use it to download yarn <br />
     Command:    npm install --global yarn
 
     <br />

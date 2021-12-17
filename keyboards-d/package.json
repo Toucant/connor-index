@@ -45,6 +45,8 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "axios": "^0.24.0"
+    "@types/date-fns": "^2.6.0",
+    "axios": "^0.24.0",
+    "date-fns": "^2.27.0"
   }
 }

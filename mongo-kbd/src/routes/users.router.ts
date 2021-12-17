@@ -1,14 +1,11 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import { User } from "../models/User";
-import passport from "passport";
-import * as dotenv from "dotenv";
 // interface defining what to expect from a user document
-dotenv.config();
 interface UserDoc extends mongoose.Document {
   email: string;
-  password: string;
-  username: string;
+  firstname: string;
+  lastname: string;
 }
 const userRouter = express.Router();
 
@@ -17,31 +14,17 @@ userRouter.get("/api/users", [], async (_req: Request, res: Response) => {
   return res.status(200).send(user);
 });
 
-userRouter.post("/api/signin", async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  const user: typeof User = await User.findOne({ email });
-  if (!user) {
-    return res.status(401).send({ error: "User not found" });
-  }
-  if (await (user as any).comparePassword(password, user)) {
-    console.log("password match");
-    return res.status(200).send(user);
-  }
-  return res.status(401).send({ error: "Invalid credentials" });
-});
-userRouter.post("/api/signup", async (req: Request, res: Response) => {
-  const { email, password, username } = req.body;
+userRouter.post("/api/adduser", async (req: Request, res: Response) => {
+  const { email, firstName, lastName } = req.body;
   const emailExists = await User.findOne({ email });
-  const usernameExists = await User.findOne({ username });
   if (emailExists) {
     res.status(401).send({ error: "Email already exists in the system" });
-  } else if (usernameExists) {
-    res.status(401).send({ error: "Username already exists" });
+    console.log("email exists");
   } else {
-    const user = User.build({ email, password, username });
+    const user = User.build({ email, firstName, lastName });
 
-    console.log(email, password, username);
-    await user.save();
+    console.log(email, firstName, lastName);
+    await (user).save();
     res.status(201).json(user);
   }
 });

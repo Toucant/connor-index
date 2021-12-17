@@ -1,8 +1,12 @@
 export type TaskData = {
-    id: string,
-    title: string,
-    department: string,
-    tasklog: string
+    id: any;
+    title: String,
+    description: String,
+    taskLog: String,
+    department: String,
+    author: String,
+    dueDate: Date,
+    assignedUser: String,
 };
 
 export default TaskData;

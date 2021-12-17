@@ -10,19 +10,26 @@ interface TaskDoc extends mongoose.Document {
   taskLog: String;
   department: String;
   author: String;
-  dueDate: { type: Date };
+  dueDate: Date ;
   assignedUser: String;
 }
 export const taskRouter = express.Router();
 
 taskRouter.use(express.json());
 
-taskRouter.get("/api/task", [], async (_req: Request, res: Response) => {
+taskRouter.get("/api/task", [], async (req: Request, res: Response) => {
   const task = await Task.find({});
+
   return res.status(200).send(task);
 });
+taskRouter.get("/api/taskid", async (req: Request, res: Response) => {
+  const id = req.body.id;
+  const task = await Task.findById(id);
+  console
+  return res.status(200).send(task);
+});
+
 taskRouter.post("/api/task", async (req: Request, res: Response) => {
-  try {
     const {
       title,
       description,
@@ -32,6 +39,7 @@ taskRouter.post("/api/task", async (req: Request, res: Response) => {
       dueDate,
       assignedUser,
     } = req.body;
+
     const task = Task.build({
       title,
       description,
@@ -41,8 +49,9 @@ taskRouter.post("/api/task", async (req: Request, res: Response) => {
       dueDate,
       assignedUser,
     });
-    res.status(200).send(task);
-  } catch (err: any) {
-    res.status(500).send(err.message);
-  }
+    await task.save().then(() => {
+      console.log("Task saved");
+    });
+    res.status(201).json({status: 'success', task: task});
+    
 });

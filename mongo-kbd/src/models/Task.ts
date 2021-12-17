@@ -4,14 +4,17 @@ import mongoose, { Schema, model } from "mongoose";
 // for incrementing task #
 // credit to mongoose docs for the increment function + schema
 
+interface taskModelInterface extends mongoose.Model<any> {
+  build(attr: ITask): any;
+}
 export interface ITask {
-  title: String;
-  description: String;
-  taskLog: String;
-  department: String;
-  author: String;
+  title: {type: String, required: true};
+  description: {type: String, required: true};
+  taskLog: {type: String, required: false};
+  department: {type: String, required: true};
+  author: {type: String, required: true};
   dueDate: { type: Date };
-  assignedUser: String;
+  assignedUser: {type: String, required: true};
 }
 interface taskModelInterface extends mongoose.Model<any> {
   build(attr: ITask): any;
@@ -23,7 +26,6 @@ export const TaskSchema: Schema = new mongoose.Schema(
     description: String,
     taskLog: String,
     department: String,
-    // note author to map to username
     author: String,
     creationDate: { type: Date, default: Date.now },
     dueDate: { type: Date },
@@ -37,5 +39,7 @@ TaskSchema.statics.build = (attr: ITask) => {
 
 const Task = mongoose.model<any, taskModelInterface>("Task", TaskSchema);
 // pre == hook on creation of task
-
+const build = (attr: ITask) => {
+  return new Task(attr);
+};
 export { Task };

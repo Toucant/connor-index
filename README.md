@@ -27,7 +27,7 @@ running in order for the two to communicate with each other. Here are the steps 
     <li> With both terminals open you should now be able to access the website as well as communicate with the mongoDB backend. No tasks or users are stored locally, they are sent to a hosted mongoDB cluster.</li >
 </ol>
 <h3>Side notes</h3>
-- The dotenv files have been left in the public repo for the assignment turn in. The 'secret' info is to a public trial server with mongoDB so there is no real risk of data corruption
+- The dotenv files have been left in the public repo for the assignment turn in. The 'secret' info is to a public trial server with mongoDB so there is no real risk of data loss/corruption
 <h4>Troubleshooting?</h4>
 
 - Delete the yarn.lock file in the directory that is causing problems and run the command: yarn
